@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/blog', function () {
 
@@ -21,7 +21,7 @@ Route::get('/blog', function () {
     ];
 
     return view('blog', ['posts' => $posts]);
-});
+})->name('blog');
 
 Route::get('/blog/{slug}', function ($slug) {
 
@@ -30,7 +30,7 @@ Route::get('/blog/{slug}', function ($slug) {
     $post = $slug;
 
     return view('post', ['post' => $post]);
-});
+})->name('post');
 
 
 
