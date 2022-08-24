@@ -8,7 +8,7 @@
 
 <label class="uppercase text-gray-700 text-xs">Contenido</label>
 
-<textarea name="" rows="5" class="rounded border-gray-200 w-full mb-4">{{ $post->body }}</textarea>
+<textarea name="body" rows="5" class="rounded border-gray-200 w-full mb-4">{{ $post->body }}</textarea>
 
 <div class="flex items-center justify-between">
 
