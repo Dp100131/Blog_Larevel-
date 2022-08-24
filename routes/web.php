@@ -1,36 +1,23 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
+/**
+Route::get('/', [PageController::class, 'home'])->name('home');
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 
-Route::get('/blog', function () {
+Route::get('/blog/{slug}', [PageController::class, 'post'])->name('post');
+*/
 
-    //Consulta a bases de datos
+Route::controller(PageController::class)->group( function () {
 
-    $posts = [
-        ['id' => 1,
-         'title' => 'PHP',
-         'slug' => 'php'],
-         ['id' => 2,
-         'title' => 'LARAVEL',
-         'slug' => 'laravel']
-    ];
+    Route::get('/',            'home')->name('home');
 
-    return view('blog', ['posts' => $posts]);
-})->name('blog');
+    Route::get('/blog',        'blog')->name('blog');
 
-Route::get('/blog/{slug}', function ($slug) {
+    Route::get('/blog/{slug}', 'post')->name('post');
 
-    //Consulta a base de datos
-
-    $post = $slug;
-
-    return view('post', ['post' => $post]);
-})->name('post');
-
-
+});
 
