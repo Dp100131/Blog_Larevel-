@@ -14,6 +14,16 @@ class PostController extends Controller
         ]);
     }
 
+    public function  create()
+    {
+        return View('posts.create');
+    }
+
+    public function edit(Post $post)
+    {
+        return View('posts.edit', ['post' => $post]);
+    }
+
     public function destroy(Post $post)
     {
         $post->delete();
